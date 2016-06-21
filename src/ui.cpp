@@ -477,8 +477,8 @@ private:
     // whether an error occurred (used to properly call NotifyUpdateCancelled)
     bool m_errorOccurred;
 
-    static const int RELNOTES_WIDTH = 460;
-    static const int RELNOTES_HEIGHT = 200;
+    static const int RELNOTES_WIDTH = 890;
+    static const int RELNOTES_HEIGHT = 500;
 };
 
 
@@ -878,6 +878,11 @@ void UpdateDialog::StateUpdateAvailable(const Appcast& info, bool installAutomat
     // take some time to load the MSIE control:
     if ( showRelnotes )
         ShowReleaseNotes(info);
+
+    // Magor - Added this to center application when using custom release note sizes
+    // TODO: The window is already shown at this point, causes the window to move
+    //       quickly into the center
+    CenterWindowOnHostApplication(this);
 }
 
 
